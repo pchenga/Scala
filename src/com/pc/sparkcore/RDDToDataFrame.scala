@@ -5,7 +5,7 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 import org.apache.spark.rdd.RDD
 
-
+//Schema
 case class User(userId:String, productId:String, visitorId:String)
 
 object RDDToDataFrame {
