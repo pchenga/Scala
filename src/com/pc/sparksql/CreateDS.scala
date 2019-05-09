@@ -5,6 +5,8 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.Dataset
 import org.apache.spark.sql.Row
+import org.apache.spark.sql.catalyst.encoders._
+import org.apache.spark.sql.Encoders
 
 object CreateDS {
 
@@ -38,7 +40,7 @@ object CreateDS {
    val users = Seq(("u1","p1",1),("u2","p2",1),("u3","p3",3),("u4","p4",1),("u5","p5",5))
    
    val df:Dataset[Row]= users.toDF("uid","pid","vid")
-   
+      
    //users.toDF("uid","pid","vid")
    
     val inputRDD:RDD[String] = spark.sparkContext.textFile("E:/Scala_Durga/Vamshi_PIO_Support/MOCK_DATA.csv")                       
@@ -63,6 +65,7 @@ object CreateDS {
     }
     )
    
+    
   
   val userDS =  spark.createDataset(userRDD)
   

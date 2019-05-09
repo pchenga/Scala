@@ -51,8 +51,17 @@ object UserDriver {
     //(1, List(1,1,1))  3
     //(2, List(1,1,1))
     
-    val nums = List(1,2,3,4,5)
-    val res = nums.reduce((a,b) => a+b)
+    val nums:List[Int] = List(1,2,3,4,5)
+    val res = nums.reduce(_ + _) //1+2 =3 +3 =6 + 4 10=5 
+    
+    val nums1:List[Int] = List(6,7,8)
+    
+    val finalNums:List[Int] = nums ++ nums1
+    
+    finalNums.foreach(println)
+    
+    
+    
     
     val userCountRDD = pairRDD.reduceByKey(sum _) // Inline func or anonymous func or lambda
     userCountRDD.foreach(t => t._1 +"\t" + t._2)
